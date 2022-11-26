@@ -75,7 +75,7 @@ function backgroundGenerator() {
         container.style.color = "white";
     }
     if (clima === "Clear") {
-        container.style.backgroundImage = "url('https://www.gannett-cdn.com/-mm-/09629241d104a4756c279bf1ea4294534f1d70f1/c=0-59-640-421/local/-/media/2016/10/31/INGroup/Evansville/636135276888682113-sunny1.jpg?width=1200&disable=upscale&format=pjpg&auto=webp')";
+        container.style.backgroundImage = "url('https://data.whicdn.com/images/281744156/original.gif')";
         container.style.color = "light gray";
     }
 }
