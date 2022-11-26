@@ -27,7 +27,7 @@ function getWeatherAPI(getWeather) {
 
 function getDatos(dato) {
     const temp = document.createElement("h2");
-    temp.textContent = dato.main.temp + " ºC";
+    temp.textContent = Math.round(dato.main.temp) + " ºC";
     document.getElementById("temp").appendChild(temp);
     const speed = document.createElement("h2");
     speed.textContent = dato.wind.speed + " m/s";
@@ -42,7 +42,7 @@ function getDatos(dato) {
     country.textContent = dato.sys.country;
     document.getElementById("country").appendChild(country);
     const feelslike = document.createElement("h2");
-    feelslike.textContent = dato.main.feels_like + " ºC";
+    feelslike.textContent = Math.round(dato.main.feels_like) + " ºC";
     document.getElementById("feelslike").appendChild(feelslike);
     backgroundGenerator();
 }
@@ -71,7 +71,7 @@ function backgroundGenerator() {
         container.style.color = "white";
     }
     if (clima === "Thunderstom") {
-        container.style.backgroundColor = "yellow";
+        container.style.backgroundImage = "url('https://i.gifer.com/KNUi.gif')"
         container.style.color = "white";
     }
     if (clima === "Clear") {
