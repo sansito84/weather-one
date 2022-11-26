@@ -56,14 +56,14 @@ function backgroundGenerator() {
         container.style.color = "mediumgray";
     }
     if (clima === "Rain") {
-        container.style.backgroundColor = "gray";
+        container.style.backgroundImage = "url('https://www.gannett-cdn.com/-mm-/09629241d104a4756c279bf1ea4294534f1d70f1/c=0-59-640-421/local/-/media/2016/10/31/INGroup/Evansville/636135276888682113-sunny1.jpg?width=1200&disable=upscale&format=pjpg&auto=webp')";
     }
     if (clima === "Snow") {
-        container.style.backgroundColor = "white";
+        container.style.backgroundImage = "url('https://i.gifer.com/3Pm1.gif')"
         container.style.color = "grey";
     }
     if (clima === "Hail") {
-        container.style.backgroundColor = "blue";
+        container.style.backgroundImage = "url('https://media.tenor.com/RO0pokQ2mwgAAAAC/hail-hail-storm.gif')";
         container.style.color = "white";
     }
     if (clima === "Fog") {
@@ -75,7 +75,7 @@ function backgroundGenerator() {
         container.style.color = "white";
     }
     if (clima === "Clear") {
-        container.style.backgroundColor = "white";
+        container.style.backgroundImage = "url('https://www.gannett-cdn.com/-mm-/09629241d104a4756c279bf1ea4294534f1d70f1/c=0-59-640-421/local/-/media/2016/10/31/INGroup/Evansville/636135276888682113-sunny1.jpg?width=1200&disable=upscale&format=pjpg&auto=webp')";
         container.style.color = "light gray";
     }
 }
