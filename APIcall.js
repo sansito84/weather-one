@@ -1,5 +1,6 @@
 const weatherLoc = "https://weather-proxy.freecodecamp.rocks/api/current?";
 
+
 document.addEventListener("DOMContentLoaded", function() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -51,8 +52,8 @@ function backgroundGenerator() {
     const clima = document.getElementById("weather").textContent;
     console.log(container, clima);
     if (clima === "Clouds") {
-        container.style.backgroundColor = "red";
-        container.style.color = "darkcyan";
+        container.style.backgroundImage = "url('https://i.pinimg.com/originals/c1/f0/09/c1f009b219a31b387765b9a7bd8f6f1b.gif')";
+        container.style.color = "mediumgray";
     }
     if (clima === "Rain") {
         container.style.backgroundColor = "gray";
