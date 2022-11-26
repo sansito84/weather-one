@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function() {
             let getWeather = weatherLoc + lat + "&" + lon;
             console.log(getWeather);
             getWeatherAPI(getWeather);
+
+            // changeElement(weather, main);
         });
     } else {
         console.log("Geolocation is not supported by this browser.");
@@ -41,4 +43,50 @@ function getDatos(dato) {
     const feelslike = document.createElement("h2");
     feelslike.textContent = dato.main.feels_like + " ºC";
     document.getElementById("feelslike").appendChild(feelslike);
+    backgroundGenerator();
 }
+
+function backgroundGenerator() {
+    var container = document.getElementById("main");
+    const clima = document.getElementById("weather").textContent;
+    console.log(container, clima);
+    if (clima === "Clouds") {
+        container.style.backgroundColor = "red";
+        container.style.color = "darkcyan";
+    }
+    if (clima === "Rain") {
+        container.style.backgroundColor = "gray";
+    }
+    if (clima === "Snow") {
+        container.style.backgroundColor = "white";
+        container.style.color = "grey";
+    }
+    if (clima === "Hail") {
+        container.style.backgroundColor = "blue";
+        container.style.color = "white";
+    }
+    if (clima === "Fog") {
+        container.style.backgroundColor = "green";
+        container.style.color = "white";
+    }
+    if (clima === "Thunderstom") {
+        container.style.backgroundColor = "yellow";
+        container.style.color = "white";
+    }
+    if (clima === "Clear") {
+        container.style.backgroundColor = "white";
+        container.style.color = "light gray";
+    }
+}
+
+// create a function to change background color of element with Id="main" deppending of Id="weather" innerText value
+// function changeElement(element, div) {
+//     console.log(element.innerText)
+//     if ((element.innerText === "Rain")) {
+//         div.style.backgroundColor = "red";
+//     }
+//     if ((element.innerText === "Clouds")) {
+//         div.style.backgroundColor = "gray";
+//     }
+
+// }
