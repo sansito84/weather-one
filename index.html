@@ -14,25 +14,29 @@
     <script src="./APIcall.js"></script>
     <!-- Fonts -->
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.1/dist/iconify-icon.min.js"></script>
-    <script src="https://kit.fontawesome.com/7c1e059566.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-    <div class="container rounded-5 main" id="main">
-        <div class="col" id="myDiv">
-            <h1 class="text-center" id="name"></h1>
-            <h1 class="text-center" id="country"></h1>
-            <div class="text-center">
+    <div class="container rounded-5 main mx-3" id="main">
+        <div class="row" id="">
+            <div class="col-12">
+                <h1 id="name"></h1>
+                <h1 id="country"></h1>
+            </div>
+
+            <div class="col-4 pt-4 bg-secondary ">
                 <iconify-icon icon="" id="weather" width="80"></iconify-icon>
             </div>
-            <h2 class="text-center">Temperatura</h2>
-            <h1 class="text-center" id="temp"></h1>
+            <div class="col-8 bg-primary">
+                <h2 class="">Temperatura</h2>
+                <h1 class="" id="temp"></h1>
+            </div>
             <h2 class="text-center">Sensación Térmica</h2>
             <h1 class="text-center" id="feelslike"></h1>
-            <h2 class="text-center">Velocidad de Vientos</h2>
+            <h2 class="text-center">Viento</h2>
             <h1 class="text-center" id="speed"></h1>
         </div>
     </div>
