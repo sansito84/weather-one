@@ -10,8 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
             let getWeather = weatherLoc + lat + "&" + lon;
             console.log(getWeather);
             getWeatherAPI(getWeather);
-
-            // changeElement(weather, main);
         });
     } else {
         console.log("Geolocation is not supported by this browser.");
@@ -23,7 +21,7 @@ function getWeatherAPI(getWeather) {
         .then((res) => res.json())
         .then((data) => getDatos(data));
 }
-
+// crear los elementos en el DOM
 function getDatos(dato) {
     const temp = document.createElement("h1");
     temp.textContent = Math.round(dato.main.temp) + " ºC";
@@ -44,9 +42,8 @@ function getDatos(dato) {
     feelslike.textContent = Math.round(dato.main.feels_like) + " ºC";
     document.getElementById("feelslike").appendChild(feelslike);
     backgroundGenerator();
-    // iconGen(weather)
 }
-
+// modifica elementos dependiendo del valor de weather
 function backgroundGenerator() {
     var container = document.getElementById("main");
     const clima = document.getElementById("weather").textContent;
@@ -100,15 +97,3 @@ function backgroundGenerator() {
         weather.innerText = "";
     }
 }
-
-// function iconGen(weather) {
-//     var container = document.getElementById("main");
-//     const clima = document.getElementById("weather").textContent;
-//     var weather = document.getElementById("weather");
-//     console.log(container, clima);
-//     if (clima === "Clouds") {;
-//     }
-//     if (clima === "Clear") {
-
-//     }
-// }
