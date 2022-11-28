@@ -13,6 +13,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="./APIcall.js"></script>
     <!-- Fonts -->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.1/dist/iconify-icon.min.js"></script>
+    <script src="https://kit.fontawesome.com/7c1e059566.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet" />
@@ -23,7 +25,9 @@
         <div class="col" id="myDiv">
             <h1 class="text-center" id="name"></h1>
             <h1 class="text-center" id="country"></h1>
-            <h1 class="text-center" id="weather"></h1>
+            <div class="text-center">
+                <iconify-icon icon="" id="weather" width="80"></iconify-icon>
+            </div>
             <h2 class="text-center">Temperatura</h2>
             <h1 class="text-center" id="temp"></h1>
             <h2 class="text-center">Sensación Térmica</h2>
@@ -32,7 +36,6 @@
             <h1 class="text-center" id="speed"></h1>
         </div>
     </div>
-
 </body>
 <div class="spinner-grow" role="status">
     <span class="sr-only">Loading...</span>
