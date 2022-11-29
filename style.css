@@ -76,3 +76,13 @@ body {
     top: 0;
     left: 0;
 }
+
+.main .text {
+    display: none;
+}
+
+.loader {
+    position: absolute;
+    top: auto;
+    left: auto;
+}
