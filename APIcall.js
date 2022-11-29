@@ -1,14 +1,15 @@
 const weatherLoc = "https://weather-proxy.freecodecamp.rocks/api/current?";
 
+
 document.addEventListener("DOMContentLoaded", function() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             const lat = "lat=" + position.coords.latitude;
             const lon = "lon=" + position.coords.longitude;
             const acc = "acc=" + position.coords.accuracy;
-            console.log(lat, lon, acc);
+            // console.log(lat, lon, acc);
             let getWeather = weatherLoc + lat + "&" + lon;
-            console.log(getWeather);
+            // console.log(getWeather);
             getWeatherAPI(getWeather);
         });
     } else {
@@ -26,19 +27,19 @@ function getDatos(dato) {
     const temp = document.createElement("h1");
     temp.textContent = Math.round(dato.main.temp) + " ºC";
     document.getElementById("temp").appendChild(temp);
-    const speed = document.createElement("h2");
+    const speed = document.createElement("h3");
     speed.textContent = dato.wind.speed + " m/s";
     document.getElementById("speed").appendChild(speed);
     const weather = document.createElement("h2");
     weather.textContent = dato.weather[0].main;
     document.getElementById("weather").appendChild(weather);
-    const name = document.createElement("h1");
+    const name = document.createElement("h2");
     name.textContent = dato.name;
     document.getElementById("name").appendChild(name);
-    const country = document.createElement("h1");
+    const country = document.createElement("h2");
     country.textContent = dato.sys.country;
     document.getElementById("country").appendChild(country);
-    const feelslike = document.createElement("h2");
+    const feelslike = document.createElement("h3");
     feelslike.textContent = Math.round(dato.main.feels_like) + " ºC";
     document.getElementById("feelslike").appendChild(feelslike);
     backgroundGenerator();
@@ -49,7 +50,7 @@ function backgroundGenerator() {
     const clima = document.getElementById("weather").textContent;
     var weather = document.getElementById("weather");
 
-    console.log(container, clima);
+    // console.log(container, clima);
     if (clima === "Clouds") {
         container.style.backgroundImage =
             "url('https://i.pinimg.com/originals/c1/f0/09/c1f009b219a31b387765b9a7bd8f6f1b.gif')";
@@ -90,9 +91,9 @@ function backgroundGenerator() {
         weather.innerText = "";
     }
     if (clima === "Clear") {
-        container.style.backgroundImage =
+        fondo.style.backgroundImage =
             "url('https://data.whicdn.com/images/281744156/original.gif')";
-        container.style.color = "cyan";
+        container.style.color = "mediumgrey";
         weather.setAttribute("icon", "ph:sun-bold");
         weather.innerText = "";
     }
