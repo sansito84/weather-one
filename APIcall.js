@@ -47,27 +47,28 @@ function getDatos(dato) {
     humidity.textContent = dato.main.humidity + "%";
     document.getElementById("humidity").appendChild(humidity);
     document.getElementById("deg").appendChild(deg);
-    console.log(weather);
 
-    backgroundGenerator();
+
+
+    backgroundGenerator(weather);
     windDegree();
 }
 // modifica elementos dependiendo del valor de weather
-function backgroundGenerator() {
+function backgroundGenerator(weather) {
     var container = document.getElementById("main");
+    const clima = weather
+    const fondo = document.querySelectorAll('.fondo')[0];
 
-    const clima = document.getElementsByClassName("weather").textContent;
-    // var weather = document.getElementById("weather");
+
     // var hidden = document.getElementsById("text");
 
-    console.log(container, clima, weather);
     if (clima === "Clouds") {
         fondo.style.backgroundImage =
             "url('https://i.pinimg.com/originals/c1/f0/09/c1f009b219a31b387765b9a7bd8f6f1b.gif')";
         container.style.color = "mediumgray";
     }
     if (clima === "Rain") {
-        fondor.style.backgroundImage =
+        fondo.style.backgroundImage =
             "url('https://www.gannett-cdn.com/-mm-/09629241d104a4756c279bf1ea4294534f1d70f1/c=0-59-640-421/local/-/media/2016/10/31/INGroup/Evansville/636135276888682113-sunny1.jpg?width=1200&disable=upscale&format=pjpg&auto=webp')";
     }
     if (clima === "Snow") {

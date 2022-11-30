@@ -33,9 +33,9 @@ function getDatis(data) {
 
 
     let i = data.currentConditions.icon;
-    console.log(icon);
+    // console.log(icon);
     let iconFile = icon + "/" + i + ".svg";
-    console.log(iconFile);
+    // console.log(iconFile);
     iconImage.setAttribute("src", iconFile);
     let maxTodayF = data.days[0].tempmax;
     let minTodayF = data.days[0].tempmin;
