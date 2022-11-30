@@ -94,4 +94,11 @@ a {
 
 .icon-primary {
     height: 80px;
+    -webkit-filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, 0.446));
+    filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, 0.444));
+}
+
+.iconito {
+    -webkit-filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, 0.446));
+    filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, 0.444));
 }

@@ -64,40 +64,40 @@ function backgroundGenerator() {
         fondo.style.backgroundImage =
             "url('https://i.pinimg.com/originals/c1/f0/09/c1f009b219a31b387765b9a7bd8f6f1b.gif')";
         container.style.color = "mediumgray";
-        weather.setAttribute("icon", "ph:cloud-bold");
+
     }
     if (clima === "Rain") {
         fondor.style.backgroundImage =
             "url('https://www.gannett-cdn.com/-mm-/09629241d104a4756c279bf1ea4294534f1d70f1/c=0-59-640-421/local/-/media/2016/10/31/INGroup/Evansville/636135276888682113-sunny1.jpg?width=1200&disable=upscale&format=pjpg&auto=webp')";
-        weather.setAttribute("icon", "ph:cloud-rain-bold");
+
     }
     if (clima === "Snow") {
         fondo.style.backgroundImage = "url('https://i.gifer.com/3Pm1.gif')";
         container.style.color = "grey";
-        weather.setAttribute("icon", "ph:cloud-snow-bold");
+
     }
     if (clima === "Hail") {
         fondo.style.backgroundImage =
             "url('https://media.tenor.com/RO0pokQ2mwgAAAAC/hail-hail-storm.gif')";
         container.style.color = "white";
-        weather.setAttribute("icon", "ph:cloud-snow");
+
     }
     if (clima === "Fog") {
         fondo.style.backgroundImage =
             "url('https://media.tenor.com/hN8ma5kfmF0AAAAC/fog-mountains.gif')";
         container.style.color = "white";
-        weather.setAttribute("icon", "ph:cloud-fog-bold");
+
     }
     if (clima === "Thunderstom") {
         fondo.style.backgroundImage = "url('https://i.gifer.com/KNUi.gif')";
         container.style.color = "white";
-        weather.setAttribute("icon", "ph:cloud-snow-bold");
+
     }
     if (clima === "Clear") {
         fondo.style.backgroundImage =
             "url('https://data.whicdn.com/images/281744156/original.gif')";
         container.style.color = "mediumgrey";
-        weather.setAttribute("icon", "ph:sun-bold");
+
     }
 
 }

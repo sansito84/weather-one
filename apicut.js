@@ -27,22 +27,26 @@ function getMoreWeather(APIS) {
 
 function getDatis(data) {
     // console.log(data);
-    const icon = "https://raw.githubusercontent.com/visualcrossing/WeatherIcons/2de560da89d87de44e3ca2a6593a12c19c8346d3/SVG/1st%20Set%20-%20Monochrome"
-    const weather = data.currentConditions.pressure;
+    const icon =
+        "https://raw.githubusercontent.com/visualcrossing/WeatherIcons/2de560da89d87de44e3ca2a6593a12c19c8346d3/SVG/1st%20Set%20-%20Monochrome";
 
-    console.log(weather);
-    let dateTime = data.currentConditions.datetime;
-    console.log(dateTime);
+
+
     let i = data.currentConditions.icon;
     console.log(icon);
-    let iconFile = icon + "/" + i + ".svg"
+    let iconFile = icon + "/" + i + ".svg";
     console.log(iconFile);
-    iconImage.setAttribute("src", iconFile)
+    iconImage.setAttribute("src", iconFile);
     let maxTodayF = data.days[0].tempmax;
     let minTodayF = data.days[0].tempmin;
-    console.log(maxTodayF);
-    console.log(minTodayF);
-    // convert maxTodayF fahrenheit to celcius
+
+
+    const maxToday = document.getElementById("maxToday");
+    const minToday = document.getElementById("minToday");
+
+    maxToday.textContent = "Max " + Math.round((maxTodayF - 38) / 1.8) + " ºC";
+    minToday.textContent = "Min " + Math.round((minTodayF - 38) / 1.8) + " ºC";
+
     let maxi1 = data.days[1].tempmax;
     let mini1 = data.days[1].tempmin;
     let iconi1 = data.days[1].icon;
@@ -76,21 +80,16 @@ function getDatis(data) {
     iconImage2.setAttribute("src", icon2);
     iconImage3.setAttribute("src", icon3);
 
+    let datetime1 = data.days[1].datetime;
+    let datetime2 = data.days[2].datetime;
+    let datetime3 = data.days[3].datetime;
 
-
-
-    const maxToday = document.getElementById("maxToday")
-    const minToday = document.getElementById("minToday");
-    console.log(maxToday);
-    console.log(minToday);
-    maxToday.textContent = "Max " + Math.round((maxTodayF - 38) / 1.8) + " ºC";
-    minToday.textContent = "Min " + Math.round((minTodayF - 38) / 1.8) + " ºC";
-
-    console.log(maxToday);
-    console.log(minToday);
-    // const temp = data.main.temp;
-    // const temp2 = data.main.temp_min;
-    // const temp3 = data.main.temp_max;
+    const date1 = document.getElementById("date1");
+    const date2 = document.getElementById("date2");
+    const date3 = document.getElementById("date3");
+    date1.textContent = datetime1;
+    date2.textContent = datetime2;
+    date3.textContent = datetime3;
 }
 
 function startTime() {
