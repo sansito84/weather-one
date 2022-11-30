@@ -28,7 +28,7 @@ function getMoreWeather(APIS) {
 function getDatis(data) {
     // console.log(data);
     const icon =
-        "https://raw.githubusercontent.com/visualcrossing/WeatherIcons/2de560da89d87de44e3ca2a6593a12c19c8346d3/SVG/1st%20Set%20-%20Monochrome";
+        "https://raw.githubusercontent.com/visualcrossing/WeatherIcons/main/SVG/3rd%20Set%20-%20Monochrome";
 
     // currentTime information
 
