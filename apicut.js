@@ -30,12 +30,12 @@ function getDatis(data) {
     const icon =
         "https://raw.githubusercontent.com/visualcrossing/WeatherIcons/2de560da89d87de44e3ca2a6593a12c19c8346d3/SVG/1st%20Set%20-%20Monochrome";
 
-
+    // today information
 
     let i = data.currentConditions.icon;
-    // console.log(icon);
+    console.log(icon);
     let iconFile = icon + "/" + i + ".svg";
-    // console.log(iconFile);
+    console.log(iconFile);
     iconImage.setAttribute("src", iconFile);
     let maxTodayF = data.days[0].tempmax;
     let minTodayF = data.days[0].tempmin;
@@ -46,6 +46,17 @@ function getDatis(data) {
 
     maxToday.textContent = "Max " + Math.round((maxTodayF - 38) / 1.8) + " ºC";
     minToday.textContent = "Min " + Math.round((minTodayF - 38) / 1.8) + " ºC";
+
+    // today description
+    let todayDescription = data.description;
+    console.log(todayDescription);
+    const description = document.getElementById("description");
+    description.textContent = todayDescription;
+
+    // today icon
+
+
+    // look for 3 days in the future
 
     let maxi1 = data.days[1].tempmax;
     let mini1 = data.days[1].tempmin;
@@ -79,6 +90,8 @@ function getDatis(data) {
     iconImage1.setAttribute("src", icon1);
     iconImage2.setAttribute("src", icon2);
     iconImage3.setAttribute("src", icon3);
+
+    // calling datetime
 
     let datetime1 = data.days[1].datetime;
     let datetime2 = data.days[2].datetime;
