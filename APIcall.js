@@ -22,11 +22,11 @@ function getWeatherAPI(getWeather) {
 }
 // crear los elementos en el DOM
 function getDatos(dato) {
-    const temp = document.createElement("h1");
-    temp.textContent = Math.round(dato.main.temp) + " ºC";
-    document.getElementById("temp").appendChild(temp);
+    // const temp = document.createElement("h1");
+    // temp.textContent = Math.round(dato.main.temp) + " ºC";
+    // document.getElementById("temp").appendChild(temp);
     const speed = document.createElement("h3");
-    speed.textContent = dato.wind.speed + " m/s";
+    speed.textContent = dato.wind.speed + " km/h";
     document.getElementById("speed").appendChild(speed);
     // const weather = document.createElement("h2");
     const weather = dato.weather[0].main;
@@ -37,9 +37,9 @@ function getDatos(dato) {
     const country = document.createElement("h2");
     country.textContent = dato.sys.country;
     document.getElementById("country").appendChild(country);
-    const feelslike = document.createElement("h2");
-    feelslike.textContent = Math.round(dato.main.feels_like) + " ºC";
-    document.getElementById("feelslike").appendChild(feelslike);
+    // const feelslike = document.createElement("h2");
+    // feelslike.textContent = Math.round(dato.main.feels_like) + " ºC";
+    // document.getElementById("feelslike").appendChild(feelslike);
     const deg = document.createElement("img");
     deg.textContent = Math.round(dato.wind.deg);
     deg.setAttribute("id", "wind");

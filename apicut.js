@@ -30,13 +30,16 @@ function getDatis(data) {
     const icon =
         "https://raw.githubusercontent.com/visualcrossing/WeatherIcons/2de560da89d87de44e3ca2a6593a12c19c8346d3/SVG/1st%20Set%20-%20Monochrome";
 
-    // today information
+    // currentTime information
 
     let i = data.currentConditions.icon;
     console.log(icon);
     let iconFile = icon + "/" + i + ".svg";
     console.log(iconFile);
     iconImage.setAttribute("src", iconFile);
+
+    // today condition
+
     let maxTodayF = data.days[0].tempmax;
     let minTodayF = data.days[0].tempmin;
 
@@ -44,8 +47,8 @@ function getDatis(data) {
     const maxToday = document.getElementById("maxToday");
     const minToday = document.getElementById("minToday");
 
-    maxToday.textContent = "Max " + Math.round((maxTodayF - 38) / 1.8) + " ºC";
-    minToday.textContent = "Min " + Math.round((minTodayF - 38) / 1.8) + " ºC";
+    maxToday.textContent = "Max " + Math.round((maxTodayF - 32) / 1.8) + " ºC";
+    minToday.textContent = "Min " + Math.round((minTodayF - 32) / 1.8) + " ºC";
 
     // today description
     let todayDescription = data.description;
@@ -53,8 +56,14 @@ function getDatis(data) {
     const description = document.getElementById("description");
     description.textContent = todayDescription;
 
-    // today icon
+    // current conditions
+    let temp = document.createElement("h1");
+    temp.textContent = Math.round(((data.currentConditions.temp) - 32) / 1.8) + " ºC";
+    document.getElementById("temp").appendChild(temp);
 
+    const feelslike = document.createElement("h2");
+    feelslike.textContent = Math.round(((data.currentConditions.feelslike) - 32) / 1.8) + " ºC";;
+    document.getElementById("feelslike").appendChild(feelslike);
 
     // look for 3 days in the future
 
@@ -69,19 +78,19 @@ function getDatis(data) {
     let iconi3 = data.days[3].icon;
 
     const max1 = document.getElementById("max1");
-    max1.textContent = "Max " + Math.round((maxi1 - 38) / 1.8) + " ºC";
+    max1.textContent = "Max " + Math.round((maxi1 - 32) / 1.8) + " ºC";
     const min1 = document.getElementById("min1");
-    min1.textContent = "Min " + Math.round((mini1 - 38) / 1.8) + " ºC";
+    min1.textContent = "Min " + Math.round((mini1 - 32) / 1.8) + " ºC";
 
     const max2 = document.getElementById("max2");
-    max2.textContent = "Max " + Math.round((maxi2 - 38) / 1.8) + " ºC";
+    max2.textContent = "Max " + Math.round((maxi2 - 32) / 1.8) + " ºC";
     const min2 = document.getElementById("min2");
-    min2.textContent = "Min " + Math.round((mini2 - 38) / 1.8) + " ºC";
+    min2.textContent = "Min " + Math.round((mini2 - 32) / 1.8) + " ºC";
 
     const max3 = document.getElementById("max3");
-    max3.textContent = "Max " + Math.round((maxi3 - 38) / 1.8) + " ºC";
+    max3.textContent = "Max " + Math.round((maxi3 - 32) / 1.8) + " ºC";
     const min3 = document.getElementById("min3");
-    min3.textContent = "Min " + Math.round((mini3 - 38) / 1.8) + " ºC";
+    min3.textContent = "Min " + Math.round((mini3 - 32) / 1.8) + " ºC";
 
     let icon1 = icon + "/" + iconi1 + ".svg";
     let icon2 = icon + "/" + iconi2 + ".svg";
