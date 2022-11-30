@@ -12,6 +12,7 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="./APIcall.js"></script>
+    <script src="./apicut.js"></script>
     <!-- Fonts -->
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.1/dist/iconify-icon.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,45 +20,98 @@
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet" />
 </head>
 
-<body>
-    <div class="container rounded-5 main p-5 justify-content-center" id="main" style="display: none;">
+<body onload="startTime()">
+    <div class="container rounded-5 main p-5 justify-content-center" id="main" style="display: none">
         <div class="row">
-            <div class="col col-12 rounded-4">
-                <div id="name"></div>
-                <div id="country"></div>
+            <div class="col col-12 col-md-8 rounded-4">
+                <div class="text-center" id="name"></div>
+                <div class="text-center" id="country"></div>
+            </div>
+            <div class="col col-12 col-md-4 rounded-4">
+                <h1 id="txt"></h1>
             </div>
         </div>
-        <div class="row fondo justify-content-center rounded-4" id="fondo">
+        <div class="row fondo justify-content-around rounded-4" id="fondo">
             <div class="col col-4 pt-4 text-center">
-                <iconify-icon icon="" id="weather" width="80"></iconify-icon>
+                <img src="" alt="" class="icon-primary" id="iconImage">
             </div>
             <div class="col col-4 pt-3 text-center" id="fondo">
                 <div class="" id="temp"></div>
-                <!-- <iconify-icon icon="ph:thermometer-bold"></iconify-icon> -->
+            </div>
+            <div class="col col-4 pt-3 text-center">
+                <h3 id="maxToday"></h3>
+                <h3 id="minToday"></h3>
             </div>
         </div>
         <div class="row justify-content-between align-content-center">
-            <div class="col-12 col-3 col-md-4 col-sm-12  mt-2 text-center">
-                <h2 class="text-center">Térmica</h2>
+            <div class="col-12 col-3 col-md-4 col-sm-12 mt-2 text-center">
+                <h2 class="text-center">Feelslike</h2>
                 <div class="text-center" id="feelslike"></div>
             </div>
             <div class="col-12 col-3 col-md-4 col-sm-12 mt-2 text-center">
-                <h2 class="text-center">Viento</h2>
+                <h2 class="text-center">Winds</h2>
                 <div class="text-center" id="speed">
                     <div class="text-center" id="deg"></div>
                 </div>
             </div>
-            <div class="col-12 col-3 col-md-4 col-sm-12  mt-2 text-center">
-                <h2 class="text-center">Humedad</h2>
+            <div class="col-12 col-3 col-md-4 col-sm-12 mt-2 text-center">
+                <h2 class="text-center">Humidity</h2>
                 <div class="text-center" id="humidity"></div>
             </div>
         </div>
+        <div class="row justify-content-between align-content-center bg-secondary bg-gradient rounded-4">
+            <h2>Prediction</h2>
+            <div class="col-4">
+                <div class="row">
+                    <h2 id="date1"></h2>
+                    <div class="col-3 col-md-4 col">
+                        <img class="iconito" src="" alt="" id="iconImage1" />
+                    </div>
+                    <div class="col-3 col-md-4 col">
+                        <h3 id="max1"></h3>
+                        <h3 id="min1"></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row">
+                    <h2 id="date2"></h2>
+                    <div class="col-4 col-md-4 col">
+                        <img class="iconito" src="" alt="" id="iconImage2" />
+                    </div>
+                    <div class="col-4 col-md-4 col">
+                        <h3 id="max2"></h3>
+                        <h3 id="min2"></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row">
+                    <h2 id="date3"></h2>
+                    <div class="col-4 col-md-4 col">
+                        <img class="iconito" src="" alt="" id="iconImage3" />
+                    </div>
+                    <div class="col-4 col-md-4 col">
+                        <h3 id="max3"></h3>
+                        <h3 id="min3"></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <footer class="text-center mt-5" id="footer" style="display: none">
+        Made with ❤️ by
+        <a class="link" href="https://santiagosito.online" target="_blank">
+                Santiago Sito
+            </a>
+    </footer>
+    <h1 id="weather" style="display: none;"></h1>
 </body>
 <div class="d-flex mt-5 justify-content-center" id="loader">
     <div class="spinner-border">
         <!-- <span class="visually-hidden">Loading...</span> -->
     </div>
 </div>
+
 
 </html>

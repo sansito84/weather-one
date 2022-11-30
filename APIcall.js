@@ -3,19 +3,17 @@ const weatherLoc = "https://weather-proxy.freecodecamp.rocks/api/current?";
 document.addEventListener("DOMContentLoaded", function() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
-            const lat = "lat=" + position.coords.latitude;
-            const lon = "lon=" + position.coords.longitude;
-            const acc = "acc=" + position.coords.accuracy;
+            const lat = `lat=${position.coords.latitude}`;
+            const lon = `lon=${position.coords.longitude}`;
+            const acc = `acc=${position.coords.accuracy}`;
             // console.log(lat, lon, acc);
-            let getWeather = weatherLoc + lat + "&" + lon;
-            // console.log(getWeather);
+            let getWeather = `${weatherLoc + lat}&${lon}`;
             getWeatherAPI(getWeather);
         });
     } else {
         console.log("Geolocation is not supported by this browser.");
     }
 });
-
 
 function getWeatherAPI(getWeather) {
     fetch(getWeather)
@@ -48,7 +46,6 @@ function getDatos(dato) {
     const humidity = document.createElement("h3");
     humidity.textContent = dato.main.humidity + "%";
     document.getElementById("humidity").appendChild(humidity);
-
     document.getElementById("deg").appendChild(deg);
 
     backgroundGenerator();
@@ -57,6 +54,7 @@ function getDatos(dato) {
 // modifica elementos dependiendo del valor de weather
 function backgroundGenerator() {
     var container = document.getElementById("main");
+
     const clima = document.getElementById("weather").textContent;
     var weather = document.getElementById("weather");
     // var hidden = document.getElementsById("text");
@@ -101,18 +99,16 @@ function backgroundGenerator() {
         container.style.color = "mediumgrey";
         weather.setAttribute("icon", "ph:sun-bold");
     }
-    weather.innerText = "";
-    // hidden.style.visibility = "visible";
 
 }
 
 function windDegree() {
     var windDegree = document.getElementById("wind").textContent;
-    console.log(windDegree);
+    // console.log(windDegree);
     let a = "";
     let loader = document.getElementById("loader");
     let main = document.getElementById("main");
-    console.log(loader)
+    // console.log(loader)
 
     if (
         (windDegree > 337 && windDegree <= 360) ||
@@ -143,5 +139,18 @@ function windDegree() {
     }
     wind.setAttribute("src", a);
     main.style.display = "block";
+    footer.style.display = "block";
     loader.classList.add("visually-hidden");
 }
+
+// function getMoreWeather(APIS) {
+//     // console.log(APIVS);
+//     fetch(APIS)
+//         .then((res) => res.json())
+//         .then((data1) => getDatis(data1));
+//     console.log(data1)
+// }
+
+// function getDatis(data1) {
+
+// }

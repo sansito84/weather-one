@@ -86,3 +86,12 @@ body {
     top: auto;
     left: auto;
 }
+
+a {
+    text-decoration: none !important;
+    ;
+}
+
+.icon-primary {
+    height: 80px;
+}
