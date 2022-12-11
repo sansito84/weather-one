@@ -56,7 +56,7 @@ function getDatos(dato) {
 
 }
 
-function getFlag(country) {
+function getFlag() {
     const flagURL = "https://countryflagsapi.com/svg/";
     const flag = document.getElementById("country").textContent;
     const bander = flagURL + flag;
