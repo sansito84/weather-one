@@ -6,12 +6,12 @@ document.addEventListener("DOMContentLoaded", function() {
             const lat = `lat=${position.coords.latitude}`;
             const lon = `lon=${position.coords.longitude}`;
             const acc = `acc=${position.coords.accuracy}`;
-            console.log(lat, lon, acc);
+            //console.log(lat, lon, acc);
             let getWeather = `${weatherLoc + lat}&${lon}`;
             getWeatherAPI(getWeather);
         });
     } else {
-        console.log("Geolocation is not supported by this browser.");
+        //console.log("Geolocation is not supported by this browser.");
     }
 });
 
@@ -56,22 +56,25 @@ function getDatos(dato) {
 
 }
 
+
+
+
 function getFlag() {
     const flagURL = "https://countryflagsapi.com/svg/";
     const flag = document.getElementById("country").textContent;
     const bander = flagURL + flag;
     document.getElementById("flag").setAttribute("src", bander);
-    console.log(flagURL + flag);
+    //console.log(flagURL + flag);
 
 }
 // modifica elementos dependiendo del valor de weather
 
 // function getMoreWeather(APIS) {
-//     // console.log(APIVS);
+//     // //console.log(APIVS);
 //     fetch(APIS)
 //         .then((res) => res.json())
 //         .then((data1) => getDatis(data1));
-//     console.log(data1)
+//     //console.log(data1)
 // }
 
 // function getDatis(data1) {
@@ -82,8 +85,11 @@ function backgroundGenerator(weather) {
     var container = document.getElementById("main");
     const clima = weather
     const fondo = document.querySelectorAll('.fondo')[0];
+    const sunrise = document.getElementById("sunrise").innerText;
+    const sunset = document.getElementById("sunset").innerText;
+    const time = document.getElementById("txt").innerText;
 
-
+    //console.log(sunrise, sunset, time);
     // var hidden = document.getElementsById("text");
 
     if (clima === "Clouds") {

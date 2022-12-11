@@ -9,33 +9,33 @@ function newFunction() {
             const lat2 = position.coords.latitude;
             const lon2 = position.coords.longitude;
             let APIS = `${APIVS + lat2},${lon2}${key}`;
-            // console.log(getWeather);
-            console.log(APIS);
+            // //console.log(getWeather);
+            //console.log(APIS);
             getMoreWeather(APIS);
         });
     } else {
-        console.log("Geolocation is not supported by this browser.");
+        //console.log("Geolocation is not supported by this browser.");
     }
 }
 
 function getMoreWeather(APIS) {
-    // console.log(APIVS);
+    // //console.log(APIVS);
     fetch(APIS)
         .then((res) => res.json())
         .then((data) => getDatis(data));
 }
 
 function getDatis(data) {
-    // console.log(data);
+    // //console.log(data);
     const icon =
         "https://raw.githubusercontent.com/visualcrossing/WeatherIcons/main/SVG/2nd%20Set%20-%20Monochrome";
 
     // currentTime information
 
     let i = data.currentConditions.icon;
-    // console.log(icon);
+    // //console.log(icon);
     let iconFile = icon + "/" + i + ".svg";
-    // console.log(iconFile);
+    // //console.log(iconFile);
     iconImage.setAttribute("src", iconFile);
 
     //location
@@ -57,7 +57,7 @@ function getDatis(data) {
 
     // today description
     let todayDescription = data.description;
-    console.log(todayDescription);
+    //console.log(todayDescription);
     const description = document.getElementById("description");
     description.textContent = todayDescription;
 
@@ -77,7 +77,7 @@ function getDatis(data) {
     deg.textContent = Math.round(data.currentConditions.winddir);
     deg.setAttribute("id", "wind");
     document.getElementById("deg").appendChild(deg);
-    console.log("deg: " + deg)
+    //console.log("deg: " + deg)
 
     const speed = document.createElement("h3");
     speed.textContent = data.currentConditions.windspeed + " km/h";
@@ -135,7 +135,12 @@ function getDatis(data) {
     humidity.textContent = data.currentConditions.humidity + "%";
     document.getElementById("humidity").appendChild(humidity);
 
-
+    const sunrise = data.currentConditions.sunrise
+        //console.log(sunrise);
+        // document.getElementById("sunrise").innerText(sunrise);
+    const sunset = data.currentConditions.sunset
+        //console.log(sunset);
+        // document.getElementById("sunset").innerText(sunset);
 
 
 
@@ -148,11 +153,11 @@ function getDatis(data) {
 
 function windDegree() {
     var windDegree = document.getElementById("wind").textContent;
-    // console.log(windDegree);
+    // //console.log(windDegree);
     let a = "";
     let loader = document.getElementById("loader");
     let main = document.getElementById("main");
-    // console.log(loader)
+    // //console.log(loader)
 
     if (
         (windDegree > 337 && windDegree <= 360) ||
