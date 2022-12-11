@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const lat = `lat=${position.coords.latitude}`;
             const lon = `lon=${position.coords.longitude}`;
             const acc = `acc=${position.coords.accuracy}`;
-            // console.log(lat, lon, acc);
+            console.log(lat, lon, acc);
             let getWeather = `${weatherLoc + lat}&${lon}`;
             getWeatherAPI(getWeather);
         });
@@ -25,9 +25,9 @@ function getDatos(dato) {
     // const temp = document.createElement("h1");
     // temp.textContent = Math.round(dato.main.temp) + " ºC";
     // document.getElementById("temp").appendChild(temp);
-    const speed = document.createElement("h3");
-    speed.textContent = dato.wind.speed + " km/h";
-    document.getElementById("speed").appendChild(speed);
+    // const speed = document.createElement("h3");
+    // speed.textContent = dato.wind.speed + " km/h";
+    // document.getElementById("speed").appendChild(speed);
     // const weather = document.createElement("h2");
     const weather = dato.weather[0].main;
     document.getElementById("weather").textContent = weather;
@@ -40,20 +40,44 @@ function getDatos(dato) {
     // const feelslike = document.createElement("h2");
     // feelslike.textContent = Math.round(dato.main.feels_like) + " ºC";
     // document.getElementById("feelslike").appendChild(feelslike);
-    const deg = document.createElement("img");
-    deg.textContent = Math.round(dato.wind.deg);
-    deg.setAttribute("id", "wind");
-    const humidity = document.createElement("h3");
-    humidity.textContent = dato.main.humidity + "%";
-    document.getElementById("humidity").appendChild(humidity);
-    document.getElementById("deg").appendChild(deg);
-
+    // const deg = document.createElement("img");
+    // deg.textContent = Math.round(dato.wind.deg);
+    // deg.setAttribute("id", "wind");
+    // const humidity = document.createElement("h3");
+    // humidity.textContent = dato.main.humidity + "%";
+    // document.getElementById("humidity").appendChild(humidity);
+    // document.getElementById("deg").appendChild(deg);
 
 
     backgroundGenerator(weather);
-    windDegree();
+    getFlag(country);
+
+
+
+}
+
+function getFlag(country) {
+    const flagURL = "https://countryflagsapi.com/svg/";
+    const flag = document.getElementById("country").textContent;
+    const bander = flagURL + flag;
+    document.getElementById("flag").setAttribute("src", bander);
+    console.log(flagURL + flag);
+
 }
 // modifica elementos dependiendo del valor de weather
+
+// function getMoreWeather(APIS) {
+//     // console.log(APIVS);
+//     fetch(APIS)
+//         .then((res) => res.json())
+//         .then((data1) => getDatis(data1));
+//     console.log(data1)
+// }
+
+// function getDatis(data1) {
+
+// }
+
 function backgroundGenerator(weather) {
     var container = document.getElementById("main");
     const clima = weather
@@ -95,56 +119,3 @@ function backgroundGenerator(weather) {
         container.style.color = "mediumgrey";
     }
 }
-
-function windDegree() {
-    var windDegree = document.getElementById("wind").textContent;
-    // console.log(windDegree);
-    let a = "";
-    let loader = document.getElementById("loader");
-    let main = document.getElementById("main");
-    // console.log(loader)
-
-    if (
-        (windDegree > 337 && windDegree <= 360) ||
-        (windDegree >= 0 && windDegree < 22)
-    ) {
-        a = "./assets/imgs/norte.svg";
-    }
-    if (windDegree > 22 && windDegree <= 67) {
-        a = "./assets/imgs/noreste.svg";
-    }
-    if (windDegree > 67 && windDegree <= 112) {
-        a = "./assets/imgs/este.svg";
-    }
-    if (windDegree > 112 && windDegree <= 157) {
-        a = "./assets/imgs/sureste.svg";
-    }
-    if (windDegree > 157 && windDegree <= 202) {
-        a = "./assets/imgs/sur.svg";
-    }
-    if (windDegree > 202 && windDegree <= 247) {
-        a = "./assets/imgs/suroeste.svg";
-    }
-    if (windDegree > 247 && windDegree <= 292) {
-        a = "./assets/imgs/oeste.svg";
-    }
-    if (windDegree > 292 && windDegree <= 337) {
-        a = "./assets/imgs/noroeste.svg";
-    }
-    wind.setAttribute("src", a);
-    main.style.display = "block";
-    footer.style.display = "block";
-    loader.classList.add("visually-hidden");
-}
-
-// function getMoreWeather(APIS) {
-//     // console.log(APIVS);
-//     fetch(APIS)
-//         .then((res) => res.json())
-//         .then((data1) => getDatis(data1));
-//     console.log(data1)
-// }
-
-// function getDatis(data1) {
-
-// }

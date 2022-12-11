@@ -28,15 +28,20 @@ function getMoreWeather(APIS) {
 function getDatis(data) {
     // console.log(data);
     const icon =
-        "https://raw.githubusercontent.com/visualcrossing/WeatherIcons/main/SVG/3rd%20Set%20-%20Monochrome";
+        "https://raw.githubusercontent.com/visualcrossing/WeatherIcons/main/SVG/2nd%20Set%20-%20Monochrome";
 
     // currentTime information
 
     let i = data.currentConditions.icon;
-    console.log(icon);
+    // console.log(icon);
     let iconFile = icon + "/" + i + ".svg";
-    console.log(iconFile);
+    // console.log(iconFile);
     iconImage.setAttribute("src", iconFile);
+
+    //location
+    const name = document.createElement("h2");
+    name.textContent = data.name;
+    document.getElementById("name").appendChild(name);
 
     // today condition
 
@@ -64,6 +69,19 @@ function getDatis(data) {
     const feelslike = document.createElement("h2");
     feelslike.textContent = Math.round(((data.currentConditions.feelslike) - 32) / 1.8) + " ºC";;
     document.getElementById("feelslike").appendChild(feelslike);
+
+    //wind direction and speed
+
+    const deg = document.createElement("img");
+
+    deg.textContent = Math.round(data.currentConditions.winddir);
+    deg.setAttribute("id", "wind");
+    document.getElementById("deg").appendChild(deg);
+    console.log("deg: " + deg)
+
+    const speed = document.createElement("h3");
+    speed.textContent = data.currentConditions.windspeed + " km/h";
+    document.getElementById("speed").appendChild(speed);
 
     // look for 3 days in the future
 
@@ -112,7 +130,64 @@ function getDatis(data) {
     date1.textContent = datetime1;
     date2.textContent = datetime2;
     date3.textContent = datetime3;
+
+    const humidity = document.createElement("h2");
+    humidity.textContent = data.currentConditions.humidity + "%";
+    document.getElementById("humidity").appendChild(humidity);
+
+
+
+
+
+    windDegree();
+
+
 }
+
+
+
+function windDegree() {
+    var windDegree = document.getElementById("wind").textContent;
+    // console.log(windDegree);
+    let a = "";
+    let loader = document.getElementById("loader");
+    let main = document.getElementById("main");
+    // console.log(loader)
+
+    if (
+        (windDegree > 337 && windDegree <= 360) ||
+        (windDegree >= 0 && windDegree < 22)
+    ) {
+        a = "./assets/imgs/norte.svg";
+    }
+    if (windDegree > 22 && windDegree <= 67) {
+        a = "./assets/imgs/noreste.svg";
+    }
+    if (windDegree > 67 && windDegree <= 112) {
+        a = "./assets/imgs/este.svg";
+    }
+    if (windDegree > 112 && windDegree <= 157) {
+        a = "./assets/imgs/sureste.svg";
+    }
+    if (windDegree > 157 && windDegree <= 202) {
+        a = "./assets/imgs/sur.svg";
+    }
+    if (windDegree > 202 && windDegree <= 247) {
+        a = "./assets/imgs/suroeste.svg";
+    }
+    if (windDegree > 247 && windDegree <= 292) {
+        a = "./assets/imgs/oeste.svg";
+    }
+    if (windDegree > 292 && windDegree <= 337) {
+        a = "./assets/imgs/noroeste.svg";
+    }
+    wind.setAttribute("src", a);
+    main.style.display = "block";
+    footer.style.display = "block";
+    loader.classList.add("visually-hidden");
+}
+
+
 
 function startTime() {
     var today = new Date();

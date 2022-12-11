@@ -93,12 +93,23 @@ a {
 }
 
 .icon-primary {
-    height: 80px;
+    height: 5rem;
     -webkit-filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, 0.446));
     filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, 0.444));
 }
 
 .iconito {
+    height: 3.5rem;
+    -webkit-filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, 0.446));
+    filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, 0.444));
+}
+
+#flag {
+    height: 50px;
+    width: auto;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
     -webkit-filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, 0.446));
     filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, 0.444));
 }
