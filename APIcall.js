@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
             getWeatherAPI(getWeather);
         });
     } else {
-        //console.log("Geolocation is not supported by this browser.");
+        console.log("Geolocation is not supported by this browser.");
     }
 });
 
@@ -22,13 +22,6 @@ function getWeatherAPI(getWeather) {
 }
 // crear los elementos en el DOM
 function getDatos(dato) {
-    // const temp = document.createElement("h1");
-    // temp.textContent = Math.round(dato.main.temp) + " ºC";
-    // document.getElementById("temp").appendChild(temp);
-    // const speed = document.createElement("h3");
-    // speed.textContent = dato.wind.speed + " km/h";
-    // document.getElementById("speed").appendChild(speed);
-    // const weather = document.createElement("h2");
     const weather = dato.weather[0].main;
     document.getElementById("weather").textContent = weather;
     const name = document.createElement("h2");
@@ -37,27 +30,10 @@ function getDatos(dato) {
     const country = document.createElement("h2");
     country.textContent = dato.sys.country;
     document.getElementById("country").appendChild(country);
-    // const feelslike = document.createElement("h2");
-    // feelslike.textContent = Math.round(dato.main.feels_like) + " ºC";
-    // document.getElementById("feelslike").appendChild(feelslike);
-    // const deg = document.createElement("img");
-    // deg.textContent = Math.round(dato.wind.deg);
-    // deg.setAttribute("id", "wind");
-    // const humidity = document.createElement("h3");
-    // humidity.textContent = dato.main.humidity + "%";
-    // document.getElementById("humidity").appendChild(humidity);
-    // document.getElementById("deg").appendChild(deg);
-
 
     backgroundGenerator(weather);
     getFlag(country);
-
-
-
 }
-
-
-
 
 function getFlag() {
     const flagURL = "https://countryflagsapi.com/svg/";
@@ -65,31 +41,16 @@ function getFlag() {
     const bander = flagURL + flag;
     document.getElementById("flag").setAttribute("src", bander);
     //console.log(flagURL + flag);
-
 }
-// modifica elementos dependiendo del valor de weather
 
-// function getMoreWeather(APIS) {
-//     // //console.log(APIVS);
-//     fetch(APIS)
-//         .then((res) => res.json())
-//         .then((data1) => getDatis(data1));
-//     //console.log(data1)
-// }
-
-// function getDatis(data1) {
-
-// }
 
 function backgroundGenerator(weather) {
     var container = document.getElementById("main");
-    const clima = weather
-    const fondo = document.querySelectorAll('.fondo')[0];
-    const sunrise = document.getElementById("sunrise").innerText;
-    const sunset = document.getElementById("sunset").innerText;
-    const time = document.getElementById("txt").innerText;
+    const clima = weather;
+    const fondo = document.querySelectorAll(".fondo")[0];
 
-    //console.log(sunrise, sunset, time);
+
+
     // var hidden = document.getElementsById("text");
 
     if (clima === "Clouds") {

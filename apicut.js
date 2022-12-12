@@ -135,12 +135,13 @@ function getDatis(data) {
     humidity.textContent = data.currentConditions.humidity + "%";
     document.getElementById("humidity").appendChild(humidity);
 
-    const sunrise = data.currentConditions.sunrise
-        //console.log(sunrise);
-        // document.getElementById("sunrise").innerText(sunrise);
-    const sunset = data.currentConditions.sunset
-        //console.log(sunset);
-        // document.getElementById("sunset").innerText(sunset);
+    // const sunrise = data.currentConditions.sunrise;
+    // const sunset = data.currentConditions.sunset;
+
+    // const hour = document.getElementById("txt").innerText;
+
+    // console.log(hour, sunrise, sunset);
+
 
 
 
