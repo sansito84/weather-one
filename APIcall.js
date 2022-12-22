@@ -36,10 +36,11 @@ function getDatos(dato) {
 }
 
 function getFlag() {
-    const flagURL = "https://countryflagsapi.com/svg/";
+    const flagURL = "https://flagsapi.com/";
     const flag = document.getElementById("country").textContent;
-    const bander = flagURL + flag;
+    const bander = flagURL + flag + '/shiny/64.png';
     document.getElementById("flag").setAttribute("src", bander);
+    document.getElementById("flag").setAttribute("alt", flag);
     //console.log(flagURL + flag);
 }
 

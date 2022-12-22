@@ -8,6 +8,15 @@ body {
     padding: 0;
 }
 
+html,
+body,
+h1,
+h2,
+h3,
+h4 {
+    font-family: "Alegreya Sans SC", sans-serif;
+}
+
 .main {
     margin-top: 20px;
     margin-bottom: auto;
@@ -28,23 +37,30 @@ body {
     font-size: 4.5rem;
     text-justify: auto;
     text-align: center;
-    -webkit-filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, .7));
-    filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, .7));
+    -webkit-filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.7));
+    filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.7));
 }
 
 .main h2 {
     font-family: "Alegreya Sans SC", sans-serif;
     font-size: 3.5rem;
     text-align: center;
-    -webkit-filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, .7));
-    filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, .7));
+    -webkit-filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.7));
+    filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.7));
 }
 
 .main h3 {
     font-family: "Alegreya Sans SC", sans-serif;
     font-size: 2.5rem;
-    -webkit-filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, .7));
-    filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, .7));
+    -webkit-filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.7));
+    filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.7));
+}
+
+.main h4 {
+    font-family: "Alegreya Sans SC", sans-serif;
+    font-size: 2rem;
+    -webkit-filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.7));
+    filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.7));
 }
 
 .main iconify-icon {
@@ -53,8 +69,8 @@ body {
     height: 6rem;
     width: auto;
     text-align: center;
-    -webkit-filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, .7));
-    filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, .7));
+    -webkit-filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.7));
+    filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.7));
 }
 
 
@@ -70,8 +86,8 @@ body {
 
 .main #wind {
     height: 5rem;
-    -webkit-filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, 0.446));
-    filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, 0.444));
+    -webkit-filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.446));
+    filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.444));
     position: relative;
     top: 0;
     left: 0;
@@ -89,19 +105,56 @@ body {
 
 a {
     text-decoration: none !important;
-    ;
 }
 
 .icon-primary {
     height: 5rem;
-    -webkit-filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, 0.446));
-    filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, 0.444));
+    -webkit-filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.446));
+    filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.444));
 }
 
 .iconito {
     height: 3.5rem;
-    -webkit-filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, 0.446));
-    filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, 0.444));
+    -webkit-filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.446));
+    filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.444));
+}
+
+@-webkit-keyframes bounce-in {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(0.3);
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    70% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes bounce-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 #flag {
@@ -110,6 +163,10 @@ a {
     align-items: center;
     margin-left: auto;
     margin-right: auto;
-    -webkit-filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, 0.446));
-    filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, 0.444));
+    -webkit-filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.446));
+    filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.444));
+}
+
+.carousel-temp {
+    height: 120px;
 }

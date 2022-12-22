@@ -17,106 +17,183 @@
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.1/dist/iconify-icon.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet" />
 </head>
 
 <body onload="startTime()">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Weather wherever</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./chart.html">Tempreature by hours</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="container container-fluid rounded-5 main p-5 justify-content-center" id="main" style="display: none">
-        <div class="row">
-            <div class="col col-12 col-md-8">
-                <div class="text-center" id="name"></div>
-
-                <img class="row justify-content-center mt-0 mb-3 mx-auto" id="flag"></img>
-                <div class="text-center" id="country" style="display: none;"></div>
-            </div>
-            <div class="col col-12 col-md-4">
-                <h1 id="txt"></h1>
-            </div>
-        </div>
-        <div class="row fondo justify-content-around rounded-4" id="fondo">
-            <h3 class="text-center mt-1 px-5" id="description"></h3>
-            <div class="col col-12 col-sm-12 col-md-4 col-md-4 text-center my-auto">
-                <img src="" alt="" class="icon-primary" id="iconImage">
-            </div>
-            <div class="col col-12 col-sm-12 col-md-4 col-md-4  text-center my-auto" id="fondo">
-                <div class="" id="temp"></div>
-            </div>
-            <div class="col col-12 col-sm-12 col-md-4 col-md-4 text-center my-auto">
-                <h3 id="maxToday"></h3>
-                <h3 id="minToday"></h3>
-            </div>
-        </div>
-        <div class="row justify-content-between align-content-center">
-            <div class="col-12 col-3 col-md-4 col-sm-12  text-center my-auto">
-                <h2 class="text-center">Feelslike</h2>
-                <div class="text-center" id="feelslike"></div>
-            </div>
-            <div class="col-12 col-3 col-md-4 col-sm-12 mt-2 text-center">
-                <h2 class="text-center">Winds</h2>
-                <div class="text-center" id="speed">
-                    <div class="text-center" id="deg"></div>
+        <div class="row align-content-center justify-content-around gap-3">
+            <div class="row col-md-8 justify-content-around bg-primary rounded-4 shadow">
+                <div class="col col-12 col-md-12">
+                    <div class="text-center" id="name"></div>
+                    <img class="row justify-content-center mt-0 mb-3 mx-auto" id="flag" alt="flag of your country here" />
+                    <div class="text-center" id="country" style="display: none"></div>
+                </div>
+                <div class="col col-12 col-md-4 text-center">
+                    <h3 id="showtime"></h3>
+                    <h1 id="txt"></h1>
+                </div>
+                <div class="col-12 col-md-12 col-lg-2 text-center">
+                    <iconify-icon icon="bi:sunrise"></iconify-icon>
+                    <h4 id="sunrise"></h4>
+                </div>
+                <div class="col-12 col-md-12 col-lg-2 text-center">
+                    <iconify-icon icon="bi:sunset"></iconify-icon>
+                    <h4 id="sunset"></h4>
                 </div>
             </div>
-            <div class="col-12 col-3 col-md-4 col-sm-12  text-center my-auto">
-                <h2 class="text-center">Humidity</h2>
-                <div class="text-center" id="humidity"></div>
+            <div class="col-12 col-md-4 fondo justify-content-around rounded-4 shadow" id="fondo">
+                <h4 class="text-center mt-1 px-5" id="description">
+                </h4>
+                <div class="col col-12 col-sm-12 col-md-12 text-center my-auto">
+                    <img src="" alt="" class="icon-primary" id="iconImage" />
+                </div>
+                <div id="carousel" class="carousel slide mt-2" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active carousel-temp">
+                            <h4 class="text-center">Temp</h4>
+                            <div class="text-center" id="temp"></div>
+                        </div>
+                        <div class="carousel-item text-center carousel-temp">
+                            <h4 class="text-center">Feelslike</h4>
+                            <div class="text-center" id="feelslike"></div>
+                        </div>
+                        <div class="carousel-item text-center carousel-temp">
+                            <h3 id="maxToday"></h3>
+                            <h3 id="minToday"></h3>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+                </div>
             </div>
         </div>
-        <div class="row justify-content-around align-content-center bg-secondary bg-gradient rounded-4 p-2">
-            <h2>Prediction</h2>
-            <div class="col-12 col-sm-12 col-md-6 col-lg-4 my-3">
-                <div class="row justify-content-center align-content-center bg-gradient rounded-3 mx-1">
-                    <h2 id="date1"></h2>
-                    <div class="col-2 col-md-4 col my-auto">
-                        <img class="iconito" src="" alt="" id="iconImage1" />
+        <div class="row justify-content-around align-content-center mt-3">
+            <div class="col-md-3">
+                <div class="row aling-content-center justify-content-center">
+                    <div class="col text-center my-auto align-content-center">
+                        <h3 class="text-center">Winds</h3>
+                        <div class="text-center" id="speed">
+                            <div class="text-center" id="deg"></div>
+                        </div>
                     </div>
-                    <div class="col-10 col-md-4 col my-auto">
-                        <h3 class="text-center" id="max1"></h3>
-                        <h3 class="text-center" id="min1"></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-12 col-md-6 col-lg-4 my-3">
-                <div class="row justify-content-center align-content-center bg-gradient rounded-3 mx-1">
-                    <h2 id="date2"></h2>
-                    <div class="col-2 col-md-4 col my-auto">
-                        <img class="iconito" src="" alt="" id="iconImage2" />
-                    </div>
-                    <div class="col-10 col-md-4 col my-auto">
-                        <h3 class="text-center" id="max2"></h3>
-                        <h3 class="text-center" id="min2"></h3>
+                    <div class="col text-center align-content-center my-auto">
+                        <h3 class="text-center">Humidity</h3>
+                        <div class="text-center" id="humidity"></div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-6 col-lg-4 my-3">
-                <div class="row justify-content-center align-content-center bg-gradient rounded-3 mx-1">
-                    <h2 id="date3"></h2>
-                    <div class="col-2 col-md-4 col my-auto">
-                        <img class="iconito" src="" alt="" id="iconImage3" />
+            <div class="col-md-9 col-12 justify-content-around align-content-center bg-secondary bg-gradient rounded-4 p-2 shadow">
+                <h2>Predictions</h2>
+                <div id="carouselPred" class="carousel slide mt-2" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row text-center align-content-center justify-content-evenly">
+                                <div class="date col-12 col-md-3 bg-gradient bg-secondary rounded-4 shadow-lg">
+                                    <h4 id="date1"></h4>
+                                    <img class="iconito" src=" " alt=" " id="iconImage1" />
+                                    <h4 class="text-center" id="max1"></h4>
+                                    <h4 class="text-center" id="min1"></h4>
+                                </div>
+                                <div class="date col-md-3">
+                                    <h4 id="date2"></h4>
+                                    <img class="iconito" src=" " alt=" " id="iconImage2" />
+                                    <h4 class="text-center" id="max2"></h4>
+                                    <h4 class="text-center" id="min2"></h4>
+                                </div>
+                                <div class="date col-md-3">
+                                    <h4 id="date3"></h4>
+                                    <img class="iconito" src=" " alt=" " id="iconImage3" />
+                                    <h4 class="text-center" id="max3"></h4>
+                                    <h4 class="text-center" id="min3"></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row text-center align-content-center justify-content-evenly">
+                                <div class="date col-12 col-md-3">
+                                    <h4 id="date4"></h4>
+                                    <img class="iconito" src=" " alt=" " id="iconImage4" />
+                                    <h4 class="text-center" id="max4"></h4>
+                                    <h4 class="text-center" id="min4"></h4>
+                                </div>
+                                <div class="date col-md-3">
+                                    <h4 id="date5"></h4>
+                                    <img class="iconito" src=" " alt=" " id="iconImage5" />
+                                    <h4 class="text-center" id="max5"></h4>
+                                    <h4 class="text-center" id="min5"></h4>
+                                </div>
+                                <div class="date col-md-3">
+                                    <h4 id="date6"></h4>
+                                    <img class="iconito" src=" " alt=" " id="iconImage6" />
+                                    <h4 class="text-center" id="max6"></h4>
+                                    <h4 class="text-center" id="min6"></h4>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-10 col-md-4 col my-auto">
-                        <h3 class="text-center" id="max3"></h3>
-                        <h3 class="text-center" id="min3"></h3>
-                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselPred" data-bs-slide="prev ">
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselPred" data-bs-slide="next ">
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true "
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
                 </div>
             </div>
         </div>
     </div>
+
     <footer class="text-center mt-5" id="footer" style="display: none">
         Made with ❤️ by
         <a class="link" href="https://santiagosito.online" target="_blank">
-                Santiago Sito
-            </a>
+        Santiago Sito
+      </a>
     </footer>
-    <h1 class="weather" id="weather" style="display: none;"></h1>
+    <h1 class="weather" id="weather" style="display: none"></h1>
 </body>
-<div class="d-flex mt-5 justify-content-center" id="loader">
+<div class="d-flex mt-5 justify-content-center align-content-center mt-5 mx-auto" id="loader">
     <div class="spinner-border">
-        <!-- <span class="visually-hidden">Loading...</span> -->
+        <!-- <span class="visually-hidden ">Loading...</span> -->
     </div>
 </div>
-<div id="sunset" style="display: none;"></div>
-<div id="sunrise" style="display: none;"></div>
-
 
 </html>
