@@ -13,21 +13,21 @@ function newFunction() {
             let APIS = `${APIVS + lat2},${lon2}?key=${key}`;
             // //console.log(getWeather);
             //console.log(APIS);
-            getMoreWeather(APIS);
+            getDaysWeather(APIS);
         });
     } else {
         console.log("Geolocation is not supported by this browser.");
     }
 }
 
-function getMoreWeather(APIS) {
+function getDaysWeather(APIS) {
     // //console.log(APIVS);
     fetch(APIS)
         .then((res) => res.json())
-        .then((data) => getDatis(data));
+        .then((data) => getDatas(data));
 }
 
-function getDatis(data) {
+function getDatas(data) {
     let currentHour = new Date().getHours().toString();
 
     // Arreglo para almacenar temperaturas
@@ -43,14 +43,11 @@ function getDatis(data) {
         }
     }
 
-    // si la cantidad de datos es menor a 5 mostrar los datos del siguiente día
-    if (temperatureData.length < 5) {
+    // si la cantidad de datos es menor a 6 agregar los datos del siguiente día
+    if (temperatureData.length < 6) {
         // Iterar sobre data.days[1].hours[]
         for (let i = 0; i < data.days[1].hours.length; i++) {
-            // Obtener hora del elemento actual
-
             // Si la hora es mayor o igual a la hora actual, almacenar el elemento
-
             temperatureData.push(Math.round((data.days[1].hours[i].temp - 32) / 1.8));
         }
     }
