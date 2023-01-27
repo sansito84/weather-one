@@ -14,7 +14,7 @@ function newFunction() {
             getMoreWeather(APIS);
         });
     } else {
-        //console.log("Geolocation is not supported by this browser.");
+        console.log("Geolocation is not supported by this browser.");
     }
 }
 
@@ -36,6 +36,8 @@ function getDatis(data) {
     // //console.log(icon);
     let iconFile = icon + "/" + i + ".svg";
     // //console.log(iconFile);
+
+
     iconImage.setAttribute("src", iconFile);
     iconImage.setAttribute("alt", i);
 
