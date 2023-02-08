@@ -1,7 +1,7 @@
-﻿# Weather SantiagoSito.online
+﻿# Weather.SantiagoSito.online
 
 
-Welcome to Weather SantiagoSito.online, an online application that provides you with up-to-date weather information in real-time. With our application, you can find out the temperature, humidity, wind speed, and more for any location in the world.
+Welcome to Weather.SantiagoSito.online, an online application that provides you with up-to-date weather information in real-time. With our application, you can find out the temperature, humidity, wind speed, and more for any location in the world.
 Features
 
     Real-time weather updates for any location in the world
